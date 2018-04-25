@@ -1,6 +1,6 @@
 {% set name = "pyahocorasick" %}
-{% set version = "1.1.6" %}
-{% set sha256sum = "6bb71feccd515584edfb6923cd9e5c143da11cf0f7ffbc3c7d3eb2912cbd2026" %}
+{% set version = "1.1.8" %}
+{% set sha256sum = "3d584e7836ca7b066f99d7fdb384dc6ef7af211b2b139baedbd960c7c279bb7f" %}
 
 package:
   name: {{ name|lower }}
