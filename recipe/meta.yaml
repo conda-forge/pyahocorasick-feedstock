@@ -1,6 +1,6 @@
 {% set name = "pyahocorasick" %}
-{% set version = "1.1.7" %}
-{% set sha256sum = "4eac78a6c94329d4d58ce888689b86469f4c8ab80be699c7ba53f3184b41280a" %}
+{% set version = "1.3.0" %}
+{% set sha256sum = "819749c0f99dda5fd45f43ce588ee32109aec3006aad01a3698148603c3ad0ee" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 1000
+  number: 0
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -45,3 +45,4 @@ about:
 extra:
   recipe-maintainers:
     - hellothisisMatt
+    - peterk87
