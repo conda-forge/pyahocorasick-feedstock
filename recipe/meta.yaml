@@ -1,6 +1,6 @@
 {% set name = "pyahocorasick" %}
-{% set version = "1.4.0" %}
-{% set sha256sum = "f9431a20e47e893cadd29f367825e882dbc6fc324a3c24c41e3ff9648e5d04b2" %}
+{% set version = "1.4.1" %}
+{% set sha256sum = "fe076da3b0b20dbb619b0fb6478af8766b06679c0e359a2bfb189d3f07ddeecf" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 2
+  number: 0
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -33,12 +33,12 @@ about:
   license: BSD 3-clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Python module (C extension and plain python) implementing Aho-Corasick algorithm.'
+  summary: Python module (C extension and plain python) implementing Aho-Corasick algorithm.
   description: |
-      pyahocorasick is a fast and memory efficient library for exact or approximate multi-pattern string
-      search meaning that you can find multiple key strings occurrences at once in some input text.
-      The library provides an ahocorasick Python module that you can use as a plain dict-like Trie or
-      convert a Trie to an automaton for efficient Aho-Corasick search.
+    pyahocorasick is a fast and memory efficient library for exact or approximate multi-pattern string
+    search meaning that you can find multiple key strings occurrences at once in some input text.
+    The library provides an ahocorasick Python module that you can use as a plain dict-like Trie or
+    convert a Trie to an automaton for efficient Aho-Corasick search.
   dev_url: https://github.com/WojciechMula/pyahocorasick
   doc_url: http://pyahocorasick.readthedocs.io/en/latest/
 
