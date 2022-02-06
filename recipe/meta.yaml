@@ -1,30 +1,32 @@
 {% set name = "pyahocorasick" %}
 {% set version = "1.4.2" %}
-{% set sha256sum = "88f79307c74ae6a84f8d88c2522a082f1d21c425762aba7f7e4d14dd431d2fb7" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256sum }}
+  sha256: 88f79307c74ae6a84f8d88c2522a082f1d21c425762aba7f7e4d14dd431d2fb7
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: python -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
     - python
-    - setuptools
+    - pip
   run:
     - python
 
 test:
+  requires:
+    - pip
+  commands:
+    - pip check
   imports:
     - ahocorasick
 
@@ -44,5 +46,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - hellothisisMatt
     - peterk87
