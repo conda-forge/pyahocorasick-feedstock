@@ -1,5 +1,5 @@
 {% set name = "pyahocorasick" %}
-{% set version = "2.2.0" %}
+{% set version = "2.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 817f302088400a1402bf2f8631fdb21cf5a2666888e0d6a7d5a3ad556212e9da
+  sha256: 2960f5838bbcca4d7765c40478ec56f938e3f161946ff84f00c06d2b3a0ba9dd
 
 build:
-  number: 1
+  number: 0
   script: python -m pip install . -vv
 
 requirements:
