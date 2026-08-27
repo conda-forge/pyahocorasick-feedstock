@@ -1,12 +1,15 @@
-{% set name = "pyahocorasick" %}
-{% set version = "2.3.1" %}
+schema_version: 1
+
+context:
+  name: pyahocorasick
+  version: "2.3.1"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
   sha256: 9d0f6bb522237ed7f111ed59c9e8baea7d1e75813587b6773babd43bda35db9f
 
 build:
@@ -15,10 +18,12 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
   host:
     - python
     - pip
@@ -26,18 +31,14 @@ requirements:
   run:
     - python
 
-test:
-  requires:
-    - pip
-  commands:
-    - pip check
-  imports:
-    - ahocorasick
+tests:
+  - python:
+      imports:
+        - ahocorasick
+      pip_check: true
 
 about:
-  home: https://github.com/WojciechMula/pyahocorasick
   license: BSD-3-Clause
-  license_family: BSD
   license_file: LICENSE
   summary: Python module (C extension and plain python) implementing Aho-Corasick algorithm.
   description: |
@@ -45,8 +46,9 @@ about:
     search meaning that you can find multiple key strings occurrences at once in some input text.
     The library provides an ahocorasick Python module that you can use as a plain dict-like Trie or
     convert a Trie to an automaton for efficient Aho-Corasick search.
-  dev_url: https://github.com/WojciechMula/pyahocorasick
-  doc_url: http://pyahocorasick.readthedocs.io/en/latest/
+  homepage: https://github.com/WojciechMula/pyahocorasick
+  repository: https://github.com/WojciechMula/pyahocorasick
+  documentation: http://pyahocorasick.readthedocs.io/en/latest/
 
 extra:
   recipe-maintainers:
