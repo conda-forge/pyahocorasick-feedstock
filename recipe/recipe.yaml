@@ -1,20 +1,19 @@
 schema_version: 1
 
 context:
-  name: pyahocorasick
   version: "2.3.1"
 
 package:
-  name: ${{ name|lower }}
+  name: pyahocorasick
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pyahocorasick/pyahocorasick-${{ version }}.tar.gz
   sha256: 9d0f6bb522237ed7f111ed59c9e8baea7d1e75813587b6773babd43bda35db9f
 
 build:
   number: 0
-  script: python -m pip install . -vv
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
