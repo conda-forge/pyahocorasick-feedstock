@@ -35,6 +35,15 @@ tests:
       imports:
         - ahocorasick
       pip_check: true
+  - requirements:
+      run:
+        - pytest
+    files:
+      source:
+        - README.rst
+        - tests/
+    script:
+      - pytest
 
 about:
   license: BSD-3-Clause
